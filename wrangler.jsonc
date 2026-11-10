@@ -1,5 +1,7 @@
 {
   "name": "kifedha",
   "compatibility_date": "2025-01-01",
+  // Build the Vite site into ./dist before every deploy (Cloudflare's dashboard build command is empty).
+  "build": { "command": "npm run build" },
   "assets": { "directory": "./dist", "not_found_handling": "single-page-application" }
 }
