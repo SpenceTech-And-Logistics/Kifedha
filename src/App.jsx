@@ -2,6 +2,11 @@ import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { company, pills, about, services, alsoOffer, stats, vision, mission, offices, contact } from './content.js'
 
 const Scene3D = lazy(() => import('./Scene3D.jsx'))
+const extra = () => import('./Extra3D.jsx')
+const CrestCoin = lazy(() => extra().then((m) => ({ default: m.CrestCoin })))
+const ServiceIcon = lazy(() => extra().then((m) => ({ default: m.ServiceIcon })))
+const OfficeMap = lazy(() => extra().then((m) => ({ default: m.OfficeMap })))
+const CoinOrbit = lazy(() => extra().then((m) => ({ default: m.CoinOrbit })))
 
 const NAV = [['about', 'About'], ['services', 'Services'], ['offices', 'Offices'], ['contact', 'Contact']]
 const tel = (s) => 'tel:+254' + s.replace(/\s/g, '').replace(/^0/, '')
@@ -119,8 +124,9 @@ function About() {
           <h2>A micro lender built to bridge you to what's next</h2>
           {about.map((p) => <p key={p} className="body">{p}</p>)}
         </Reveal>
-        <Reveal className="logo-card" delay={120}>
-          <img src="/images/kifedha-logo.png" alt="Kifedha Limited, Your Financial Bridge" />
+        <Reveal className="about-visual" delay={120}>
+          <Suspense fallback={<div className="stage3d crest-stage" />}><CrestCoin /></Suspense>
+          <div className="logo-card"><img src="/images/kifedha-logo.png" alt="Kifedha Limited, Your Financial Bridge" /></div>
         </Reveal>
       </div>
     </section>
@@ -152,7 +158,7 @@ function Services() {
               <Tilt className="svc">
                 <div className={`ph ${s.kind === 'card' ? 'cardph' : ''}`} style={s.img ? { backgroundImage: `url(${s.img})` } : undefined} role={s.img ? 'img' : undefined} aria-label={s.alt}>
                   <span className="n">{s.n}</span>
-                  {s.kind === 'card' && <div className="mini-card"><b>MOTOR VEHICLE LOGBOOK</b><i /><i /><i /></div>}
+                  <Suspense fallback={null}><ServiceIcon kind={s.icon} /></Suspense>
                 </div>
                 <div className="body"><h3>{s.title}</h3><p>{s.text}</p></div>
               </Tilt>
@@ -183,14 +189,19 @@ function VisionMission() {
 }
 
 function Offices() {
+  const [active, setActive] = useState(0)
   return (
     <section id="offices" className="section tint">
       <div className="wrap">
         <Reveal><p className="label">Find us</p><h2>Four offices, one bridge</h2></Reveal>
+        <Reveal className="map-wrap">
+          <Suspense fallback={<div className="stage3d map-stage" />}><OfficeMap offices={offices} active={active} onPick={setActive} /></Suspense>
+          <p className="map-hint">Tap a pin to see that office</p>
+        </Reveal>
         <div className="offices">
           {offices.map((o, i) => (
             <Reveal key={o.name} delay={i * 90}>
-              <article className="office">
+              <article className={`office ${active === i ? 'on' : ''}`} onPointerEnter={() => setActive(i)} onFocus={() => setActive(i)}>
                 <span className="pin" aria-hidden="true" />
                 <h3>{o.name}</h3>
                 <p>{o.where}{o.po && <><br />{o.po}</>}</p>
@@ -219,7 +230,8 @@ function Contact() {
     <section id="contact" className="section">
       <div className="wrap">
         <Reveal className="cta">
-          <div>
+          <Suspense fallback={null}><CoinOrbit /></Suspense>
+          <div className="cta-text">
             <p className="label">Contact us</p>
             <h2>Need funds in 24 hours?</h2>
             <p className="body">Call or email our head office. Mobile {contact.phone.replace(/^(\d{4})(\d{3})(\d{3})$/, '$1 $2 $3')}.</p>

@@ -136,7 +136,7 @@ export default function Scene3D() {
     }
     window.addEventListener('pointermove', onMove)
 
-    let raf = 0, visible = true
+    let raf = 0, visible = true, glide = 0
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting }, { threshold: 0 })
     io.observe(el)
     const clock = new THREE.Clock()
@@ -145,7 +145,13 @@ export default function Scene3D() {
       if (!visible) return
       const t = clock.getElapsedTime()
       const k = reduce ? 0 : 1
-      world.rotation.y += ((target.x * .35 - .12) - world.rotation.y) * 0.05
+      // glide across the bridge as the hero scrolls away
+      const p = k ? Math.min(Math.max(-el.getBoundingClientRect().top / el.clientHeight, 0), 1.2) : 0
+      glide += (p - glide) * 0.08
+      camera.position.x = glide * 3.2
+      camera.position.y = 2.2 + glide * 2.4
+      camera.lookAt(glide * 1.2, 1.9 - glide * .4, 0)
+      world.rotation.y += ((target.x * .35 - .12 - glide * .5) - world.rotation.y) * 0.05
       world.rotation.x += ((target.y * .12) - world.rotation.x) * 0.05
       book.position.y = 3.9 + Math.sin(t * 1.1) * .12 * k
       book.rotation.z = -0.1 + Math.sin(t * .8) * .03 * k

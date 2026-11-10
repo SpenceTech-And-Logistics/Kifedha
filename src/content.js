@@ -19,9 +19,9 @@ export const about = [
 ]
 
 export const services = [
-  { n: "01", title: "Auto Logbook Loans", text: "We finance our clients within 24 hours using their motor vehicle logbooks.", kind: "card" },
-  { n: "02", title: "Import Duty Finance", text: "Designed to clear motor vehicle import duty.", img: "/images/import-duty.jpg", alt: "Cars and shipping containers at a port" },
-  { n: "03", title: "Car Insurance", text: "Vehicle insurance, personal covers, medical insurance and all other insurance services.", img: "/images/insurance.jpg", alt: "Two cars above the word insurance" },
+  { n: "01", title: "Auto Logbook Loans", text: "We finance our clients within 24 hours using their motor vehicle logbooks.", kind: "card", icon: "car" },
+  { n: "02", title: "Import Duty Finance", text: "Designed to clear motor vehicle import duty.", img: "/images/import-duty.jpg", alt: "Cars and shipping containers at a port", icon: "container" },
+  { n: "03", title: "Car Insurance", text: "Vehicle insurance, personal covers, medical insurance and all other insurance services.", img: "/images/insurance.jpg", alt: "Two cars above the word insurance", icon: "shield" },
 ]
 
 export const alsoOffer = [
@@ -40,10 +40,10 @@ export const vision = "To implement sustainable financial solutions that will im
 export const mission = "To lead a positive financial change and deliver value to our customers through quality information, advocacy, integrity and quality customer care services."
 
 export const offices = [
-  { name: "Head Office", where: "Chambai House, along Taita Road off Murang'a Road", po: "P.O. Box 105796-00101, Nairobi", phone: "0791 573 231", email: "info@kifedha.co.ke" },
-  { name: "Kitengela", where: "Milele Centre, behind Equity Bank, Kitengela", phone: "0792 239 046", email: "kitengela@kifedha.co.ke" },
-  { name: "Rongai", where: "Rescom House, along Magadi Road, Rongai", phone: "0726 370 578", email: "rongai@kifedha.co.ke" },
-  { name: "Thika", where: "Commercial Street, Thika Business Centre, above Naivas Supermarket, 3rd floor, Room 2", phone: "0759 644 338", email: "thika@kifedha.co.ke" },
+  { name: "Head Office", short: "Nairobi HQ", ll: [-1.276, 36.828], where: "Chambai House, along Taita Road off Murang'a Road", po: "P.O. Box 105796-00101, Nairobi", phone: "0791 573 231", email: "info@kifedha.co.ke" },
+  { name: "Kitengela", short: "Kitengela", ll: [-1.477, 36.960], where: "Milele Centre, behind Equity Bank, Kitengela", phone: "0792 239 046", email: "kitengela@kifedha.co.ke" },
+  { name: "Rongai", short: "Rongai", ll: [-1.396, 36.760], where: "Rescom House, along Magadi Road, Rongai", phone: "0726 370 578", email: "rongai@kifedha.co.ke" },
+  { name: "Thika", short: "Thika", ll: [-1.039, 37.083], where: "Commercial Street, Thika Business Centre, above Naivas Supermarket, 3rd floor, Room 2", phone: "0759 644 338", email: "thika@kifedha.co.ke" },
 ]
 
 export const contact = { phone: "0791573231", email: "info@kifedha.co.ke", formspree: "" }
