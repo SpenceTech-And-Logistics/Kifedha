@@ -67,6 +67,12 @@ nav a:not(.btn):hover { color: var(--gold2); }
 
 .about { display: grid; grid-template-columns: 1.15fr .85fr; gap: 64px; align-items: center; }
 .about .body { margin: 0 0 1rem; }
+.arms { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 1.6rem; }
+.arm { border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; background: rgba(255,255,255,.03); }
+.arm .label { margin: 0 0 .4rem; }
+.arm h3 { font-family: 'Fraunces', Georgia, serif; font-size: 1.2rem; margin: 0 0 .5rem; color: var(--gold2, #F3DC9A); }
+.arm p:last-child { margin: 0; color: var(--mu); font-size: .95rem; }
+@media (max-width: 560px) { .arms { grid-template-columns: 1fr; } }
 .logo-card { background: #fff; border-radius: 24px; padding: 28px; box-shadow: 0 30px 70px rgba(0,0,0,.5), 0 0 0 1px var(--line); }
 .logo-card img { width: 100%; height: auto; display: block; }
 

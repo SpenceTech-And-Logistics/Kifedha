@@ -12,11 +12,13 @@ export const company = {
 
 export const pills = ["Logbook loans", "Import duty finance", "Insurance", "M-Pesa services"]
 
-export const about = [
-  "Kifedha Ltd is a micro lending company established in 2015 and registered under the Companies Act of Kenya. The primary goal of setting up the company was to lend money to individuals and businesses on a short-term basis.",
-  "Our major focus is the provision of auto logbook loans, processed within 24 hours to cater for medical bills, business, school fees, emergency needs and personal uses.",
-  "Kifedha also provides insurance services through Kifedha Insurance Agency, offers M-Pesa services, and has partnered with other financial institutions such as banks to provide bank agency services that facilitate payments and deposits from customers.",
-]
+export const about = {
+  intro: "Kifedha Limited is a Kenyan microlender specialising in vehicle logbook loans for individuals and businesses. Our loans are secured against your vehicle and can help cover business expenses, school fees, medical bills or other personal needs. We process loan applications within 24 hours.",
+  arms: [
+    { label: "Microfinance", title: "Kifedha Limited", text: "Established in 2015 and registered under the Companies Act of Kenya. We offer auto logbook loans and import duty finance to individuals and businesses, along with M-Pesa and bank agency services." },
+    { label: "Insurance", title: "Kifedha Insurance Agency", text: "Our insurance agency arranges vehicle insurance, personal covers, medical insurance and all other insurance services." },
+  ],
+}
 
 export const services = [
   { n: "01", title: "Auto Logbook Loans", text: "We finance our clients within 24 hours using their motor vehicle logbooks.", kind: "card", icon: "car" },

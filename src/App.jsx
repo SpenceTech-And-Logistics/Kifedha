@@ -122,7 +122,16 @@ function About() {
         <Reveal>
           <p className="label">About Kifedha</p>
           <h2>A micro lender built to bridge you to what's next</h2>
-          {about.map((p) => <p key={p} className="body">{p}</p>)}
+          <p className="body">{about.intro}</p>
+          <div className="arms">
+            {about.arms.map((a) => (
+              <article className="arm" key={a.label}>
+                <p className="label">{a.label}</p>
+                <h3>{a.title}</h3>
+                <p>{a.text}</p>
+              </article>
+            ))}
+          </div>
         </Reveal>
         <Reveal className="about-visual" delay={120}>
           <Suspense fallback={<div className="stage3d crest-stage" />}><CrestCoin /></Suspense>
