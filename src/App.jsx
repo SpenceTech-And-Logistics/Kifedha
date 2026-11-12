@@ -160,7 +160,7 @@ function Services() {
   return (
     <section id="services" className="section tint">
       <div className="wrap">
-        <Reveal><p className="label">Our services</p><h2>Three ways we bridge you to what's next</h2></Reveal>
+        <Reveal><p className="label">Our services</p><h2>Three ways we bridge your funding gap</h2></Reveal>
         <div className="svcs">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 120}>
@@ -175,7 +175,7 @@ function Services() {
           ))}
         </div>
         <Reveal className="also">
-          <h3>Also from Kifedha</h3>
+          <h3>More services from Kifedha</h3>
           <ul>{alsoOffer.map((a) => <li key={a.title}><b>{a.title}</b><span>{a.text}</span></li>)}</ul>
         </Reveal>
       </div>

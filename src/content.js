@@ -23,13 +23,13 @@ export const about = {
 export const services = [
   { n: "01", title: "Auto Logbook Loans", text: "We finance our clients within 24 hours using their motor vehicle logbooks.", kind: "card", icon: "car" },
   { n: "02", title: "Import Duty Finance", text: "Designed to clear motor vehicle import duty.", img: "/images/import-duty.jpg", alt: "Cars and shipping containers at a port", icon: "container" },
-  { n: "03", title: "Car Insurance", text: "Vehicle insurance, personal covers, medical insurance and all other insurance services.", img: "/images/insurance.jpg", alt: "Two cars above the word insurance", icon: "shield" },
+  { n: "03", title: "Insurance Financing", text: "Financing that helps you pay for motor, medical and personal insurance cover.", img: "/images/insurance.jpg", alt: "Two cars above the word insurance", icon: "shield" },
 ]
 
 export const alsoOffer = [
-  { title: "Insurance agency", text: "All insurance services through Kifedha Insurance Agency." },
-  { title: "M-Pesa services", text: "M-Pesa services available through Kifedha." },
-  { title: "Bank agency services", text: "Partnerships with banks to facilitate payments and deposits from customers." },
+  { title: "Insurance Solutions", text: "Find insurance cover that suits your personal or business needs through Kifedha Insurance Agency." },
+  { title: "M-PESA Services", text: "Access M-PESA services through Kifedha for your everyday mobile money transactions." },
+  { title: "Bank Agency Services", text: "Make bank deposits and payments through Kifedha’s partner banks." },
 ]
 
 export const stats = [
