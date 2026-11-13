@@ -23,7 +23,8 @@ export const about = {
 export const services = [
   { n: "01", title: "Auto Logbook Loans", text: "We finance our clients within 24 hours using their motor vehicle logbooks.", kind: "card", icon: "car" },
   { n: "02", title: "Import Duty Finance", text: "Designed to clear motor vehicle import duty.", img: "/images/import-duty.jpg", alt: "Cars and shipping containers at a port", icon: "container" },
-  { n: "03", title: "Insurance Financing", text: "Financing that helps you pay for motor, medical and personal insurance cover.", img: "/images/insurance.jpg", alt: "Two cars above the word insurance", icon: "shield" },
+  { n: "03", title: "Market Microloans", text: "Short-term microloans for SMEs and traders in and around markets.", kind: "card", icon: "market" },
+  { n: "04", title: "Insurance Financing", text: "Financing that helps you pay for motor, medical and personal insurance cover.", img: "/images/insurance.jpg", alt: "Two cars above the word insurance", icon: "shield" },
 ]
 
 export const alsoOffer = [
@@ -35,7 +36,7 @@ export const alsoOffer = [
 export const stats = [
   { value: 2015, label: "established", plain: true },
   { value: 24, suffix: "h", label: "logbook loan processing" },
-  { value: 4, label: "offices: Nairobi, Kitengela, Rongai, Thika" },
+  { value: 5, label: "offices: Nairobi, Kitengela, Rongai, Thika, Ruiru" },
 ]
 
 export const vision = "To implement sustainable financial solutions that will improve the access to investment opportunity, better living standards now and for future generation."
@@ -46,6 +47,14 @@ export const offices = [
   { name: "Kitengela", short: "Kitengela", ll: [-1.477, 36.960], where: "Milele Centre, behind Equity Bank, Kitengela", phone: "0792 239 046", email: "kitengela@kifedha.co.ke" },
   { name: "Rongai", short: "Rongai", ll: [-1.396, 36.760], where: "Rescom House, along Magadi Road, Rongai", phone: "0726 370 578", email: "rongai@kifedha.co.ke" },
   { name: "Thika", short: "Thika", ll: [-1.039, 37.083], where: "Commercial Street, Thika Business Centre, above Naivas Supermarket, 3rd floor, Room 2", phone: "0759 644 338", email: "thika@kifedha.co.ke" },
+  { name: "Ruiru", short: "Ruiru", ll: [-1.146, 36.961], where: "Ruiru, Kiambu County" },
+]
+
+export const events = [
+  { img: "/images/events/makuyu-ostrich-edition.jpg", alt: "Kifedha Credit thank-you poster for Makuyu Golf Club members, The Ostrich Edition tournament", title: "Makuyu Golf Club", text: "The Ostrich Edition" },
+  { img: "/images/events/branded-golf-kit.jpg", alt: "Kifedha Limited branded caps and golf shirts laid out on a table", title: "Kifedha golf kit", text: "Caps and shirts for players" },
+  { img: "/images/events/engineers-golf-day.jpg", alt: "Engineers Golf Day thank-you poster, Thika Sports Club, 12 September 2026, with Kifedha Credit among the sponsors", title: "Engineers Golf Day", text: "Thika Sports Club, 12 September 2026" },
+  { img: "/images/events/flag-golf-course.jpg", alt: "Kifedha Limited Your Financial Bridge flag on a golf course", title: "On the course", text: "Kifedha flying the flag" },
 ]
 
 export const contact = { phone: "0791573231", email: "info@kifedha.co.ke", formspree: "" }

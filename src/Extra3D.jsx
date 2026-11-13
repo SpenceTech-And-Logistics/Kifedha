@@ -105,7 +105,33 @@ function makeShield() {
   return g
 }
 
-const MAKERS = { car: makeCar, container: makeContainer, shield: makeShield }
+function makeMarket() {
+  const g = new THREE.Group()
+  const purple = new THREE.MeshStandardMaterial({ color: 0x6b2fa0, metalness: .4, roughness: .4 })
+  const counter = new THREE.Mesh(new THREE.BoxGeometry(2.4, .7, 1.1), purple); counter.position.y = .35; g.add(counter)
+  const top = new THREE.Mesh(new THREE.BoxGeometry(2.5, .08, 1.2), gold()); top.position.y = .74; g.add(top)
+  const post = new THREE.CylinderGeometry(.04, .04, 1.5, 12)
+  ;[[-1.15, -.5], [1.15, -.5]].forEach(([x, z]) => { const p = new THREE.Mesh(post, gold()); p.position.set(x, 1.5, z); g.add(p) })
+  // striped awning
+  for (let i = 0; i < 8; i++) {
+    const s = new THREE.Mesh(new THREE.BoxGeometry(.32, .05, 1.4), i % 2 ? gold() : new THREE.MeshStandardMaterial({ color: 0xf1e8f8, roughness: .6 }))
+    s.position.set(-1.12 + i * .32, 2.22, -.05); s.rotation.x = .32; g.add(s)
+  }
+  // produce baskets
+  const fruit = [0xe0782b, 0x5aa33a, 0xd8352a]
+  ;[-.7, 0, .7].forEach((x, j) => {
+    const b = new THREE.Mesh(new THREE.CylinderGeometry(.3, .22, .18, 20), new THREE.MeshStandardMaterial({ color: 0x8a5a2b, roughness: .8 })); b.position.set(x, .87, .1); g.add(b)
+    for (let k = 0; k < 5; k++) { const f = new THREE.Mesh(new THREE.SphereGeometry(.1, 14, 14), new THREE.MeshStandardMaterial({ color: fruit[j], roughness: .5 })); f.position.set(x + Math.cos(k * 1.3) * .14, 1.02 + (k > 2 ? .08 : 0), .1 + Math.sin(k * 1.3) * .12); g.add(f) }
+  })
+  // floating coin stack
+  const stack = new THREE.Group()
+  for (let i = 0; i < 4; i++) { const c = makeCoin(.3, .08, 40); c.position.y = i * .09; c.rotation.y = i; stack.add(c) }
+  stack.position.set(1.5, 1.6, .5); g.add(stack); g.userData.float = stack
+  g.position.y = -1.05
+  return g
+}
+
+const MAKERS = { car: makeCar, container: makeContainer, shield: makeShield, market: makeMarket }
 
 export function ServiceIcon({ kind }) {
   const [ref] = useScene(({ scene }) => {
@@ -120,8 +146,8 @@ export function ServiceIcon({ kind }) {
         if (obj.userData.ring) obj.userData.ring.rotation.set(1.2, t * .6 * k, 0)
       },
     }
-  }, { z: kind === 'car' ? 6.5 : 6, fov: 34 }, [kind])
-  return <div className={`svc-3d ${kind === 'car' ? 'full' : ''}`} ref={ref} />
+  }, { z: kind === 'car' || kind === 'market' ? 6.5 : 6, fov: 34 }, [kind])
+  return <div className={`svc-3d ${kind === 'car' || kind === 'market' ? 'full' : ''}`} ref={ref} />
 }
 
 /* ---------- Offices: 3D map ---------- */

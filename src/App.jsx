@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
-import { company, pills, about, services, alsoOffer, stats, vision, mission, offices, contact } from './content.js'
+import { company, pills, about, services, alsoOffer, stats, vision, mission, offices, contact, events } from './content.js'
 
 const Scene3D = lazy(() => import('./Scene3D.jsx'))
 const extra = () => import('./Extra3D.jsx')
@@ -160,7 +160,7 @@ function Services() {
   return (
     <section id="services" className="section tint">
       <div className="wrap">
-        <Reveal><p className="label">Our services</p><h2>Three ways we bridge your funding gap</h2></Reveal>
+        <Reveal><p className="label">Our services</p><h2>Four ways we bridge your funding gap</h2></Reveal>
         <div className="svcs">
           {services.map((s, i) => (
             <Reveal key={s.title} delay={i * 120}>
@@ -197,12 +197,30 @@ function VisionMission() {
   )
 }
 
+function Events() {
+  return (
+    <section id="events" className="section">
+      <div className="wrap">
+        <Reveal><p className="label">In the community</p><h2>Teeing off with our partners</h2></Reveal>
+        <div className="events">
+          {events.map((e, i) => (
+            <Reveal key={e.img} delay={i * 90} className="event">
+              <a href={e.img} target="_blank" rel="noreferrer"><img src={e.img} alt={e.alt} loading="lazy" /></a>
+              <p><b>{e.title}</b><span>{e.text}</span></p>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Offices() {
   const [active, setActive] = useState(0)
   return (
     <section id="offices" className="section tint">
       <div className="wrap">
-        <Reveal><p className="label">Find us</p><h2>Four offices, one bridge</h2></Reveal>
+        <Reveal><p className="label">Find us</p><h2>Five offices, one bridge</h2></Reveal>
         <Reveal className="map-wrap">
           <Suspense fallback={<div className="stage3d map-stage" />}><OfficeMap offices={offices} active={active} onPick={setActive} /></Suspense>
           <p className="map-hint">Tap a pin to see that office</p>
@@ -214,8 +232,8 @@ function Offices() {
                 <span className="pin" aria-hidden="true" />
                 <h3>{o.name}</h3>
                 <p>{o.where}{o.po && <><br />{o.po}</>}</p>
-                <a href={tel(o.phone)}>{o.phone}</a>
-                <a href={`mailto:${o.email}`}>{o.email}</a>
+                {o.phone && <a href={tel(o.phone)}>{o.phone}</a>}
+                {o.email && <a href={`mailto:${o.email}`}>{o.email}</a>}
               </article>
             </Reveal>
           ))}
@@ -273,6 +291,7 @@ export default function App() {
         <About />
         <Services />
         <VisionMission />
+        <Events />
         <Offices />
         <Contact />
       </main>
